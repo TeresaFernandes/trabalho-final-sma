@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/agentcontest-2011-1.0.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/agentcontest-2011-1.0.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/agentcontest-2011-1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/apltk-0.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/appframework-1.03.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-awt-util-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-css-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-dom-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-ext-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-gui-util-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-parser-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-svg-dom-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-util-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/batik-xml-1.6-1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/eis-0.3.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/eismassim-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/junit-4.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/serializer-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/servlet-api-6.0.26.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/swing-layout-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/swing-worker-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/xml-apis-1.3.04.jar"/>
+	<classpathentry kind="lib" path="lib/dependency/xmlParserAPIs-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/eismassim-1.0.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/eismassim-1.0.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/eismassim-1.0.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
