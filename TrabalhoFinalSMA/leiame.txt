@@ -1,0 +1,19 @@
+
+Para executar siga os seguintes passos:
+
+1- Inicie o servidor
+Utilize os seguintes argumentos para máquina virtual
+-ea -Dcom.sun.management.jmxremote -Xss10000k -Xmx600M -DentityExpansionLimit=1000000 -DelementAttributeLimit=1000000 -Djava.rmi.server.hostname=localhost
+Execute a classe RunServer
+
+2- Inicie o monitor
+Utilize os seguintes argumentos para máquina virtual
+-Xss20000k
+Execute a classe RunMonitor
+
+3- Inicie os agentes
+Utilize os seguintes argumentos para máquina virtual
+-ea
+Execute a classe RunAgents
+
+4- Aperte enter no console de execução do servidor
