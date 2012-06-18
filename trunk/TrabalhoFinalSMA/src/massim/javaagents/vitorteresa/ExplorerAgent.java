@@ -12,9 +12,9 @@ import eis.iilang.Action;
 import eis.iilang.Percept;
 import massim.javaagents.Agent;
 
-public class SimpleSentinelAgent extends Agent {
+public class ExplorerAgent extends Agent {
 
-	public SimpleSentinelAgent(String name, String team) {
+	public ExplorerAgent(String name, String team) {
 		super(name, team);
 	}
 
@@ -38,11 +38,15 @@ public class SimpleSentinelAgent extends Agent {
 		act = planBuyBattery();
 		if ( act != null ) return act;
 
-		// 3. surveying if necessary
+		// 3. probing if necessary
+		act = planProbe();
+		if ( act != null ) return act;
+		
+		// 4. surveying if necessary
 		act = planSurvey();
 		if ( act != null ) return act;
 				
-		// 4. (almost) random walking
+		// 5. (almost) random walking
 		act = planRandomWalk();
 		if ( act != null ) return act;
 
@@ -215,6 +219,65 @@ public class SimpleSentinelAgent extends Agent {
 		
 	}
 
+	private Action planProbe() {
+
+		LinkedList<LogicBelief> beliefs = null;
+		
+		beliefs =  getAllBeliefs("position");
+		if ( beliefs.size() == 0 ) {
+				println("strangely I do not know my position");
+				return Mars2011Util.skipAction();
+		}
+		String position = beliefs.getFirst().getParameters().firstElement();
+		
+		// probe current position if not known
+		boolean probed = false;
+		LinkedList<LogicBelief> vertices = getAllBeliefs("probedVertex");
+		for ( LogicBelief v : vertices) {
+			if ( v.getParameters().get(0).equals(position) ) {
+				probed = true;
+				break;
+			}
+		}
+		if ( probed == false ) {
+			println("I do not know the value of my position. I will probe.");
+			return Mars2011Util.probeAction();
+		}
+		else {
+			println("I know the value of my position");
+		}
+		
+		beliefs = getAllBeliefs("neighbor");
+		
+		// get unprobed neighbors
+		Vector<String> unprobed = new Vector<String>();
+		for ( LogicBelief n : beliefs ) {
+			probed = false;
+			String name = n.getParameters().firstElement();
+			for ( LogicBelief v : vertices) {
+				if ( v.getParameters().get(0).equals(name) ) {
+					probed = true;
+					break;
+				}		
+			}
+			if ( probed == false )
+				unprobed.add(name);
+		}
+		if ( unprobed.size() != 0 ) {
+			println("some of my neighbors are unprobed.");
+			Collections.shuffle(unprobed);
+			String neighbor = unprobed.firstElement();
+			println("I will go to " + neighbor);
+			return Mars2011Util.gotoAction(neighbor);
+		}
+		else {
+			println("all of my neighbors are probed");
+		}		
+	
+		return null;
+
+	}
+
 	private Action planSurvey() {
 
 		println("I know " + getAllBeliefs("visibleEdge").size() + " visible edges");
@@ -290,6 +353,11 @@ public class SimpleSentinelAgent extends Agent {
 		}
 		println("we do have enough money.");
 		
+		//double r = Math.random();
+		//if ( r < 1.0 ) {
+		//	println("I am not going to buy a battery");
+		//	return null;
+		//}
 		println("I am going to buy a battery");
 		
 		return Mars2011Util.buyAction("battery");

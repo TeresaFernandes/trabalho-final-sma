@@ -12,9 +12,9 @@ import eis.iilang.Action;
 import eis.iilang.Percept;
 import massim.javaagents.Agent;
 
-public class SimpleInspectorAgent extends Agent {
+public class InspectorAgent extends Agent {
 
-	public SimpleInspectorAgent(String name, String team) {
+	public InspectorAgent(String name, String team) {
 		super(name, team);
 		// TODO Auto-generated constructor stub
 	}
